@@ -92,19 +92,25 @@
     <div class="cart-summary">
         <h2>Your Cart Summary</h2>
         <div>
+            <!-- Loop through the cart items and show each item with quantity input -->
             <c:forEach var="product" items="${cart}">
                 <div class="cart-item">
                     <img src="${product.image}" alt="Product Image">
-                    <p><strong>${product.name}</strong> - Rs ${product.price} x ${product.quantity}</p>
+                    <p><strong>${product.name}</strong> - Rs ${product.price} x 
+                        <!-- Quantity Display -->
+                        ${product.quantity}
+                    </p>
                 </div>
             </c:forEach>
+
+            <!-- Total Price Calculation -->
             <div class="cart-item">
                 <p><strong>Total Price:</strong> Rs 
-                <c:set var="totalPrice" value="0"/>
-                <c:forEach var="product" items="${cart}">
-                    <c:set var="totalPrice" value="${totalPrice + (product.price * product.quantity)}"/>
-                </c:forEach>
-                ${totalPrice}
+                    <c:set var="totalPrice" value="0"/>
+                    <c:forEach var="product" items="${cart}">
+                        <c:set var="totalPrice" value="${totalPrice + product.price * product.quantity}"/>
+                    </c:forEach>
+                    ${totalPrice}
                 </p>
             </div>
         </div>
@@ -145,10 +151,10 @@
             <div class="cart-item">
                 <p><strong>Total Price:</strong> Rs ${totalPrice}</p>
             </div>
-            <p><strong>Shipping Address:</strong> <span id="print-address"></span></p>
-            <p><strong>City:</strong> <span id="print-city"></span></p>
-            <p><strong>Pincode:</strong> <span id="print-pincode"></span></p>
-            <p><strong>State:</strong> <span id="print-state"></span></p>
+            <p><strong>Shipping Address:</strong> <span id="print-address">${address}</span></p>
+            <p><strong>City:</strong> <span id="print-city">${city}</span></p>
+            <p><strong>Pincode:</strong> <span id="print-pincode">${pincode}</span></p>
+            <p><strong>State:</strong> <span id="print-state">${state}</span></p>
             <div class="text-center">
                 <button onclick="window.print()">Print Bill</button>
                 <button onclick="downloadBill()">Download Bill</button>

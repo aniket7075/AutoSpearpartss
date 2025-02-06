@@ -94,8 +94,7 @@ public class UserController {
         user currentUser = (user) session.getAttribute("currentUser");
 
         if (currentUser == null) {
-            model.addAttribute("error", "User not found.");
-            return "errorPage.jsp";
+            return "login.jsp"; // Redirecting to login page
         }
 
         model.addAttribute("currentUser", currentUser);
@@ -199,7 +198,7 @@ public class UserController {
     public String deleteProduct(@RequestParam Integer id)
     {
         productRepo.deleteById(id);
-        return "redirect:/listt";
+        return "redirect:/list";
     }
 
     @GetMapping("/edit")
@@ -214,7 +213,7 @@ public class UserController {
     public String editProduct(@ModelAttribute Product product) 
     {
         productRepo.save(product);
-        return "redirect:/listt";
+        return "redirect:/list";
     }
 
     @PostMapping("/addToCart")

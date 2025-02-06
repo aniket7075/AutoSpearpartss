@@ -1,7 +1,5 @@
 package com.autopart.model;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,12 +10,14 @@ public class Order {
 
     // Primary key (auto-generated)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String address;
     private String city;
     private String pincode;
     private String state;
+    private double totalAmount; // Field to store the total amount of the order
 
     // Default constructor
     public Order() {}
@@ -64,10 +64,11 @@ public class Order {
         this.state = state;
     }
 
-	public void setTotalAmount(double totalAmount) {
-		// TODO Auto-generated method stub
-		
-	}
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 }
-
-
