@@ -106,12 +106,12 @@
 
         .product-card .add-to-cart 
         {
-            background-color: #007bff;
+            background-color: Black;
             color: white;
         }
 
         .product-card .buy-now {
-            background-color: #28a745;
+            background-color: #ff0c00;
             color: white;
         }
 

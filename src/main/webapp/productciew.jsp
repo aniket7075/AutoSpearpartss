@@ -1,5 +1,5 @@
 
-<%@ include file="adminheder.jsp" %>
+<%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
 <html>

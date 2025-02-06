@@ -163,7 +163,7 @@
     <!-- Check if cart is empty -->
     <c:if test="${empty cart}">
         <div class="empty-cart text-center mt-4">
-            <p>Your cart is empty. <a href="/listt" class="btn btn-primary">Continue shopping</a></p>
+            <p>Your cart is empty. <a href="/dashboard" class="btn btn-primary">Continue shopping</a></p>
         </div>
     </c:if>
 
@@ -192,7 +192,7 @@
     <!-- Cart Total -->
     <c:if test="${not empty cart}">
         <div class="cart-total">
-            <p><strong>Total Price:</strong> Rs 
+            <p><strong>Total Price:</strong>Rs 
                 <c:set var="totalPrice" value="0"/>
                 <c:forEach var="product" items="${cart}">
                     <c:set var="totalPrice" value="${totalPrice + product.price * product.quantity}"/>

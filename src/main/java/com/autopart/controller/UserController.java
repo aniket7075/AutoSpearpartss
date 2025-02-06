@@ -23,6 +23,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.autopart.model.Product;
 import com.autopart.model.user;
+import com.autopart.model.Order;
+import com.autopart.respo.OrderRepository;
 import com.autopart.respo.productinfo;
 import com.autopart.respo.userinfo;
 
@@ -35,6 +37,9 @@ public class UserController {
     private userinfo userRepo;
     @Autowired
     private productinfo productRepo;
+
+    @Autowired
+    private  OrderRepository orderRepo;
 
     @RequestMapping("/")
     public String home() {
@@ -172,14 +177,14 @@ public class UserController {
         }
         productRepo.save(product);
         redirectAttributes.addFlashAttribute("message", "Product added successfully!");
-        return "redirect:/listt";
+        return "redirect:/list";
     }
     @RequestMapping("/list")
     public String listProducts(Model model)
     {
         List<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
-        return "productciew.jsp";
+        return "productList.jsp";
     }
 
     @RequestMapping("/listt")
@@ -187,7 +192,7 @@ public class UserController {
     {
         List<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
-        return "productList.jsp";
+        return "productciew.jsp";
     }
 
     @GetMapping("/delete")
@@ -205,7 +210,7 @@ public class UserController {
         return "editProduct.jsp";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/editProduct")
     public String editProduct(@ModelAttribute Product product) 
     {
         productRepo.save(product);
@@ -258,28 +263,19 @@ public class UserController {
     }
 
     @PostMapping("/editCart")
-    public String editCart(@RequestParam Integer productId, @RequestParam Integer quantity, HttpSession session, Model model)
-    {
+    public String editCart(@RequestParam Integer productId, @RequestParam Integer quantity, HttpSession session) {
         List<Product> cart = (List<Product>) session.getAttribute("cart");
-
-        if (cart != null) 
-        {
-            for (Product product : cart) 
-            {
-                if (product.getId().equals(productId))
-                {
-                	productRepo.save(product);
+        if (cart != null) {
+            for (Product product : cart) {
+                if (product.getId().equals(productId)) {
+                    product.setQuantity(quantity);
                     break;
                 }
             }
-
-            session.setAttribute("cart", cart);
-            session.setAttribute("cartCount", cart.size());
         }
-
-        return "redirect:/checkout";
+        session.setAttribute("cart", cart);
+        return "redirect:/dashboard";
     }
-
     @PostMapping("/clearCart")
     public String clearCart(HttpSession session)
     {
@@ -315,7 +311,6 @@ public class UserController {
         {
             totalAmount += product.getPrice();
         }
-
         model.addAttribute("cart", cart);
         model.addAttribute("totalAmount", totalAmount);
 
@@ -323,4 +318,6 @@ public class UserController {
 
         return "Placed.jsp";
     }
+    
+   
 }
