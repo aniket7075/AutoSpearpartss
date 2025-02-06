@@ -8,6 +8,7 @@ public class AutopartApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AutopartApplication.class, args);
+		System.out.println("Starting.....❤️");
 	}
 
 }

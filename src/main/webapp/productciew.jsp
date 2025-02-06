@@ -1,3 +1,4 @@
+
 <%@ include file="adminheder.jsp" %>
 
 <!DOCTYPE html>
@@ -57,6 +58,8 @@
     </style>
 </head>
 <body>
+   
+            
     <h2>List of Products</h2>
     <table>
         <tr>
@@ -66,7 +69,8 @@
             <th>Description</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Actions</th>
+            <th>Action</th>
+            
         </tr>
 
         <c:forEach var="product" items="${products}">
@@ -77,13 +81,13 @@
                 <td>${product.description}</td>
                 <td>${product.price}</td>
                 <td>${product.quantity}</td>
-                <td class="actions">
-                    <a href="/edit?id=${product.id}">Edit</a> | 
-                    <a href="/delete?id=${product.id}">Delete</a>
-                </td>
+              <td><form action="/addToCart" method="post">
+                        <input type="hidden" name="productId" value="${product.id}">
+                        <button type="submit" class="add-to-cart">Add to Cart</button>
+                    </form></td>
             </tr>
         </c:forEach>
     </table>
-
+   
 </body>
 </html>

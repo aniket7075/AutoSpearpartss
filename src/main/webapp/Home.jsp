@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('/uploads/auto_parts_bg.jpg');
+            background-image: url('/uploads/Wall.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -85,9 +85,9 @@
 
         /* Background animation */
         @keyframes backgroundAnimation {
-            0% { background-image: url('/uploads/auto_parts_bg.jpg'); }
-            50% { background-image: url('/uploads/auto_parts_bg2.jpg'); }
-            100% { background-image: url('/uploads/auto_parts_bg.jpg'); }
+            0% { background-image: url('/uploads/Wall.jpg'); }
+            50% { background-image: url('/uploads/Wall.jpg'); }
+            100% { background-image: url('/uploads/Wall.jpg'); }
         }
     </style>
 </head>
