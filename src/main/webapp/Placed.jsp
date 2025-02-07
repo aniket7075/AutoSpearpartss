@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
     <title>Order Details</title>
     <style>
         body {
@@ -124,37 +122,6 @@
     </div>
 
     <%@ include file="footer.jsp" %>
-    <script>
-    function downloadBill() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-
-        // Title
-        doc.setFontSize(18);
-        doc.text("Order Bill", 20, 20);
-
-        // Address Section
-        doc.setFontSize(12);
-        doc.text("Shipping Address: " + document.getElementById('address').value, 20, 30);
-        doc.text("City: " + document.getElementById('city').value, 20, 40);
-        doc.text("Pincode: " + document.getElementById('pincode').value, 20, 50);
-        doc.text("State: " + document.getElementById('state').value, 20, 60);
-
-        // Cart Details
-        let yPosition = 70;
-        <c:forEach var="product" items="${cart}">
-            doc.text("${product.name} - Rs ${product.price} x ${product.quantity}", 20, yPosition);
-            yPosition += 10;
-        </c:forEach>
-
-        // Total Price
-        doc.text("Total Price: Rs " + ${totalPrice}, 20, yPosition);
-
-        // Save as PDF
-        doc.save("order_bill.pdf");
-    }
-</script>
-    
 </body>
 </html>
 
