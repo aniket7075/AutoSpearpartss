@@ -1,14 +1,14 @@
-# Use an official Tomcat base image
-FROM tomcat:9.0-jdk17
+# Use an official OpenJDK base image
+FROM openjdk:17-jdk-slim
 
-# Set working directory inside the container
-WORKDIR /usr/local/tomcat/webapps/
+# Set the working directory
+WORKDIR /app
 
-# Copy the WAR file to the Tomcat webapps directory
+# Copy the WAR file to the container
 COPY target/autopart-0.0.1-SNAPSHOT.war app.war
 
-# Expose the default Tomcat port
+# Expose port 8080
 EXPOSE 8080
 
-# Start Tomcat
-CMD ["catalina.sh", "run"]
+# Run the WAR file with Spring Boot
+ENTRYPOINT ["java", "-jar", "app.war"]
