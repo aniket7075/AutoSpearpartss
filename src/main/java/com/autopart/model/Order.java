@@ -12,15 +12,16 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String address;
     private String city;
     private String pincode;
     private String state;
-    private double totalAmount; // Field to store the total amount of the order
+    private double totalAmount; 
 
-    // Default constructor
-    public Order() {}
+    // Default constructor 
+    public Order() 
+    {}
 
     // Getters and Setters
 

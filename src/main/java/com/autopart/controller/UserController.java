@@ -34,6 +34,7 @@ public class UserController
 
     @Autowired
     private userinfo userRepo;
+    
     @Autowired
     private productinfo productRepo;
 
