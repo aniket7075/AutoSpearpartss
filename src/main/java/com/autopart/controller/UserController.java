@@ -31,7 +31,8 @@ import com.autopart.respo.userinfo;
 
 
 @Controller
-public class UserController {
+public class UserController 
+{
 
     @Autowired
     private userinfo userRepo;
@@ -42,13 +43,15 @@ public class UserController {
     private  OrderRepository orderRepo;
 
     @RequestMapping("/")
-    public String home() {
+    public String home() 
+    {
         return "Home.jsp";
     }
 
 
 	 @RequestMapping("/registration")
-	    public String register(@ModelAttribute user newUser) {
+	    public String register(@ModelAttribute user newUser) 
+	 {
 		 userRepo.save(newUser);
 	        return "login.jsp"; 
 	    }
@@ -56,24 +59,30 @@ public class UserController {
 	    public String login(@RequestParam String email, 
 	                        @RequestParam String password, 
 	                        Model model, 
-	                        HttpSession session) {
+	                        HttpSession session) 
+	    {
 
-	        if ("admin@admin.com".equals(email) && "admin123".equals(password)) {
+	        if ("admin@admin.com".equals(email) && "admin123".equals(password)) 
+	        {
 	            session.setAttribute("role", "ADMIN");
 	            return "redirect:/adminDashboard";
 	        }
 
 	        user userFromDb =  userRepo.findByEmail(email);
-	        if (userFromDb != null) {
-	            if (userFromDb.getPassword().equals(password)) {
+	        if (userFromDb != null) 
+	        {
+	            if (userFromDb.getPassword().equals(password)) 
+	            {
 	                session.setAttribute("currentUser", userFromDb);
 	                session.setAttribute("role", "USER");
 	                return "redirect:/dashboard";
 	                
-	            } else {
+	            } else 
+	            {
 	                model.addAttribute("error", "Invalid password");
 	            }
-	        } else {
+	        } else 
+	        {
 	            model.addAttribute("error", "User not found");
 	        }
 	        return "login.jsp";
@@ -93,7 +102,8 @@ public class UserController {
     {
         user currentUser = (user) session.getAttribute("currentUser");
 
-        if (currentUser == null) {
+        if (currentUser == null)
+        {
             return "login.jsp"; // Redirecting to login page
         }
 
@@ -102,7 +112,8 @@ public class UserController {
         model.addAttribute("products", products);
 
         Integer cartCount = (Integer) session.getAttribute("cartCount");
-        if (cartCount == null) {
+        if (cartCount == null) 
+        {
             cartCount = 0;
         }
         model.addAttribute("cartCount", cartCount);
