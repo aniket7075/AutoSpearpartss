@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image:url('uploads/berries.jpg');
-            background-size:1900px;
+            background-image:url('uploads/Wall.jpg');
+            background-size:2100px;
             background-repeat:no-repeat;
             margin: 0;
             padding: 0;
