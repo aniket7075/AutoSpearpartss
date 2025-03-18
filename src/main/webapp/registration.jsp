@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image:url('uploads/berries.jpg');
+            background-image:url('uploads/Wall.jpg');
             background-size:1900px;
             background-repeat:no-repeat;
             margin: 0;
