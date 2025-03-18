@@ -125,29 +125,29 @@
      <h2>User Registration</h2>
         <form action="registration" method="POST">
 
-            <label for="name">First Name:</label>
-            <input type="text" id="name" name="name" required>
+           <label for="name">First Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter first name" pattern="[A-Za-z]{2,}" title="Only alphabets, at least 2 characters" required>
 
             <label for="lastname">Last Name:</label>
-            <input type="text" id="last" name="last" required>
+            <input type="text" id="last" name="last" placeholder="Enter last name" pattern="[A-Za-z]{2,}" title="Only alphabets, at least 2 characters" required>
 
             <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" required>
+            <input type="text" id="phone" name="phone" placeholder="10-digit phone number" pattern="[0-9]{10}" title="10-digit phone number" required>
 
             <label for="email">Email: </label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="example@domain.com" required>
 
             <label for="address">Address: </label>
-            <input type="text" id="address" name="address" required>
+            <input type="text" id="address" name="address" placeholder="Enter address" required>
 
             <label for="city">City: </label>
-            <input type="text" id="city" name="city" required>
+            <input type="text" id="city" name="city" placeholder="Enter city name" pattern="[A-Za-z ]{2,}" title="Only alphabets, at least 2 characters" required>
             
             <label for="pincode">Pincode: </label>
-            <input type="text" id="pincode" name="pincode" required>
+            <input type="text" id="pincode" name="pincode" placeholder="6-digit pincode" pattern="[0-9]{6}" title="6-digit pincode" required>
 
             <label for="password">Password: </label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="At least 6 characters" minlength="6" required>
 
             <input type="submit" value="Register">
             
@@ -159,6 +159,7 @@
             <c:if test="${not empty success}">
                 <div class="success">${success} </div>
             </c:if>
+
 
         </form>
     </div>
