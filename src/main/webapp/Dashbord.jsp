@@ -153,7 +153,7 @@
                         <button type="submit" class="add-to-cart">Add to Cart</button>
                     </form>
                     <!-- Buy Now Button (Not yet implemented) -->
-                    <form action="/buyNow" method="post">
+                    <form action="/buy" method="post">
                         <input type="hidden" name="productId" value="${product.id}">
                         <button type="submit" class="buy-now">Buy Now</button>
                     </form>
