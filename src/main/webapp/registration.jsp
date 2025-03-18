@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image:url('uploads/Wall.jpg');
-            background-size:2100px;
+            background-image:url('uploads/berries.jpg');
+            background-size:1900px;
             background-repeat:no-repeat;
             margin: 0;
             padding: 0;
@@ -134,31 +134,34 @@
             <label for="phone">Phone:</label>
             <input type="text" id="phone" name="phone" required>
 
-            <label for="email">Email:</label>
+            <label for="email">Email: </label>
             <input type="email" id="email" name="email" required>
 
-            <label for="address">Address:</label>
+            <label for="address">Address: </label>
             <input type="text" id="address" name="address" required>
 
-            <label for="city">City:</label>
+            <label for="city">City: </label>
             <input type="text" id="city" name="city" required>
+            
+            <label for="pincode">Pincode: </label>
+            <input type="text" id="pincode" name="pincode" required>
 
-            <label for="password">Password:</label>
+            <label for="password">Password: </label>
             <input type="password" id="password" name="password" required>
 
             <input type="submit" value="Register">
             
-            <a href="login.jsp">Already have an account? Login here</a>
+            <a href="login.jsp"> Already have an account? Login here</a>
 
             <c:if test="${not empty error}">
                 <div class="error">${error}</div>
             </c:if>
             <c:if test="${not empty success}">
-                <div class="success">${success}</div>
+                <div class="success">${success} </div>
             </c:if>
 
         </form>
     </div>
-
+ <%@ include file="footer.jsp" %></div>
 </body>
 </html>

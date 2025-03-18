@@ -19,7 +19,15 @@ public class user {
     private String city;
     private String password;
     private String phone;
-    
+    public String getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+
+	private String pincode;
     // Added role attribute
     private String role;
 

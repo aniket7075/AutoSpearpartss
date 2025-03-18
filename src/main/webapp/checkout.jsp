@@ -117,7 +117,7 @@
 
         <!-- Address Form -->
         <form method="POST" action="/placeOrder" id="orderForm">
-            <div class="form-group">
+          <!--   <div class="form-group">
                 <label for="address" class="form-label">Address</label>
                 <input type="text" class="form-control" id="address" name="address" required>
             </div>
@@ -136,7 +136,7 @@
                 <label for="state" class="form-label">State</label>
                 <input type="text" class="form-control" id="state" name="state" required>
             </div>
-
+ -->
             <button type="submit" class="checkout-btn">Place Order</button>
         </form>
 
@@ -187,5 +187,6 @@
             doc.save("order_bill.pdf");
         }
     </script>
+     <%@ include file="footer.jsp" %></div>
 </body>
 </html>
