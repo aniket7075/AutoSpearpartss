@@ -139,28 +139,35 @@
  
     <h2>Available Products</h2>
 
-    <div class="product-list">
-        <c:forEach var="product" items="${products}">
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>Price: Rs ${product.price}</p>
-                <p>${product.description}</p>
-                <div class="actions">
+<div class="product-list"> 
+    <c:forEach var="product" items="${products}">
+        <div class="product-card">
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Price: Rs ${product.price}</p>
+            <p>${product.description}</p>
+            <c:choose>
+                <c:when test="${product.quantity == 0}">
+                    <p style="color: red; font-weight: bold;">Currently Not Available</p>
+                </c:when>
+            </c:choose>
+            <div class="actions">
+                <c:if test="${product.quantity > 0}">
                     <!-- Add to Cart Button -->
                     <form action="/addToCart" method="post">
                         <input type="hidden" name="productId" value="${product.id}">
                         <button type="submit" class="add-to-cart">Add to Cart</button>
                     </form>
-                    <!-- Buy Now Button (Not yet implemented) -->
+                    <!-- Buy Now Button -->
                     <form action="/buy" method="post">
                         <input type="hidden" name="productId" value="${product.id}">
                         <button type="submit" class="buy-now">Buy Now</button>
                     </form>
-                </div>
+                </c:if>
             </div>
-        </c:forEach>
-    </div>
+        </div>
+    </c:forEach>
+</div>
 
     <%@ include file="footer.jsp" %>
 </body>
